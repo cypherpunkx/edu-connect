@@ -1,92 +1,150 @@
-# 📚 EduConnect
+# EduConnect Platform
 
-## 📝 Business Idea & Flow
+A comprehensive global educational platform that combines forum discussions, free and paid courses, educational events, education news, and real-time chat in a modern, scalable, and collaborative web application.
 
-**EduConnect** adalah platform edukasi global yang dirancang khusus untuk pelajar SMA/SMK, mahasiswa, dan komunitas pendidikan di seluruh dunia.  
-Aplikasi ini menggabungkan **forum diskusi global & privat**, **kursus online gratis maupun berbayar**, **event edukasi**, **berita pendidikan terkini**, serta **fitur chat real-time** dalam satu ekosistem terpadu yang dapat diakses dari mana saja.
+## Features
 
-### 🎯 Tujuan Bisnis
-- Menjadi pusat informasi dan interaksi bagi pelajar & mahasiswa di seluruh dunia.
-- Menyediakan wadah pembelajaran kolaboratif dan berbasis komunitas.
-- Menghadirkan peluang monetisasi melalui kursus, event, dan fitur premium.
-- Mendukung pendidikan berkelanjutan dengan materi yang mudah diakses dan relevan
+- 🎓 **Course Management**: Free and paid courses with multimedia content
+- 💬 **Forum Discussions**: Public and private forums with real-time updates
+- 📅 **Event Management**: Educational events with registration and payments
+- 💬 **Real-time Chat**: Personal and group messaging
+- 📰 **News & Content**: Educational news and articles
+- 👨‍💼 **Admin Dashboard**: Comprehensive content and user management
+- 💳 **Payment Integration**: Secure payment processing for courses and events
+- 🔐 **Authentication**: Email and Google OAuth login
 
-![EduConnect Banner](docs/banner.png)
-
----
-
-## 🌟 Features
-- **Forum Diskusi** — Publik & privat, mendukung markdown, gambar, dan lampiran file.
-- **Kursus Gratis & Berbayar** — Video, PDF, kuis, sertifikat.
-- **Event Edukasi** — RSVP, reminder, berbayar atau gratis.
-- **Berita Pendidikan** — Post berita terkini seputar pendidikan.
-- **Chat Real-Time** — Personal & grup (Socket.IO).
-- **Upload Dataset Dinamis** — Admin upload CSV/XLSX/JSON dan tampilkan tabel interaktif.
-- **Panel Admin** — Kelola user, kursus, event, berita, dan data.
-
----
-
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Backend
-- **Express.js** + **TypeScript**
-- **Drizzle ORM** (`mysql2`, `drizzle-kit`)
-- **JWT Auth**
-- **Valibot** (validasi)
-- **Socket.IO** (real-time)
-- **Swagger/OpenAPI** (API docs)
+
+- **Runtime**: Node.js with TypeScript
+- **Framework**: Express.js
+- **Database**: MySQL with Drizzle ORM
+- **Real-time**: Socket.IO
+- **Authentication**: JWT + Google OAuth
+- **Validation**: Valibot
+- **File Upload**: Multer
 
 ### Frontend
-- **Next.js** (React + SSR/SSG)
-- **TailwindCSS**
-- **shadcn/ui**
-- **TanStack Query**
-- **Framer Motion**
 
-### Tools & Dev Experience
-- **MySQL** ≥5.7
-- **ESLint**, **Prettier**, **EditorConfig**
-- **Husky** + **lint-staged**
-- **Vitest/Jest**
-- **Docker** + docker-compose
-- **pnpm**
+- **Framework**: Next.js 14 with TypeScript
+- **Styling**: TailwindCSS + shadcn/ui
+- **State Management**: TanStack Query
+- **Real-time**: Socket.IO Client
+- **Animations**: Framer Motion
 
----
+### DevOps
 
-## 📈 Business Flow
+- **Package Manager**: pnpm
+- **Containerization**: Docker & Docker Compose
+- **Code Quality**: ESLint, Prettier, Husky
+- **Testing**: Vitest
 
-### User Roles
-- **Guest** → Lihat kursus gratis, event publik, berita.
-- **Student** → Ikut forum, daftar kursus, ikut event, chat real-time.
-- **Instructor** → Buat & kelola kursus.
-- **Admin** → Kelola semua konten & data, unggah dataset, lihat analitik.
+## Getting Started
 
-### Monetization
-- Kursus berbayar (revenue split).
-- Event berbayar.
-- Iklan edukasi.
-- Fitur premium.
+### Prerequisites
 
----
+- Node.js 18+
+- pnpm 8+
+- Docker & Docker Compose (optional)
 
-## 📊 Diagram Business Flow
-```mermaid
-flowchart TD
-    A[Guest] -->|Register/Login| B[Student]
-    B --> C[Join Forum]
-    B --> D[Enroll Kursus]
-    B --> E[Join Event]
-    B --> F[View Berita]
+### Installation
 
-    C -->|Public/Private Forum| G[Realtime Discussion]
-    D -->|Gratis| H[Enroll Success]
-    D -->|Berbayar| I[Payment Gateway] --> H
-    E -->|Gratis| J[Join Success]
-    E -->|Berbayar| I --> J
+1. **Clone the repository**
 
-    B --> K[Realtime Chat]
-    Admin[Admin] --> L[Manage Forum]
-    Admin --> M[Manage Courses]
-    Admin --> N[Manage Events]
-    Admin --> O[Manage News]
-    Admin --> P[Upload Dataset]
+   ```bash
+   git clone <repository-url>
+   cd educonnect-platform
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up environment variables**
+
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+4. **Start development with Docker (Recommended)**
+
+   ```bash
+   pnpm docker:dev
+   ```
+
+   Or start manually:
+
+   ```bash
+   # Start database services
+   docker-compose -f docker-compose.dev.yml up mysql redis -d
+   
+   # Start development servers
+   pnpm dev
+   ```
+
+### Available Scripts
+
+- `pnpm dev` - Start development servers
+- `pnpm build` - Build for production
+- `pnpm start` - Start production servers
+- `pnpm lint` - Run linting
+- `pnpm lint:fix` - Fix linting issues
+- `pnpm format` - Format code with Prettier
+- `pnpm test` - Run tests
+- `pnpm docker:dev` - Start development environment with Docker
+- `pnpm docker:prod` - Start production environment with Docker
+
+## Project Structure
+
+```
+educonnect-platform/
+├── backend/                 # Express.js API server
+│   ├── src/
+│   │   ├── config/         # Configuration files
+│   │   ├── controllers/    # Route controllers
+│   │   ├── services/       # Business logic
+│   │   ├── repositories/   # Data access layer
+│   │   ├── models/         # Database models
+│   │   ├── middleware/     # Express middleware
+│   │   ├── utils/          # Utility functions
+│   │   └── types/          # TypeScript types
+│   ├── Dockerfile
+│   └── package.json
+├── frontend/               # Next.js application
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── pages/          # Next.js pages
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── utils/          # Utility functions
+│   │   ├── types/          # TypeScript types
+│   │   ├── lib/            # Library configurations
+│   │   └── styles/         # CSS styles
+│   ├── Dockerfile
+│   └── package.json
+├── docker-compose.yml      # Production Docker setup
+├── docker-compose.dev.yml  # Development Docker setup
+└── package.json           # Root package.json
+```
+
+## Development Workflow
+
+1. **Code Quality**: Pre-commit hooks ensure code formatting and linting
+2. **Conventional Commits**: Commit messages follow conventional format
+3. **Testing**: Write tests for new features and bug fixes
+4. **Documentation**: Update documentation for API changes
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
