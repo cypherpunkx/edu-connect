@@ -1,7 +1,15 @@
 # 📚 EduConnect
 
-> A collaborative, scalable, and modern web platform for students and university learners.  
-> Features: global & private discussion forums, free & paid courses, educational events, real-time chat, dynamic dataset uploads, and educational news.
+## 📝 Business Idea & Flow
+
+**EduConnect** adalah platform edukasi global yang dirancang khusus untuk pelajar SMA/SMK, mahasiswa, dan komunitas pendidikan di seluruh dunia.  
+Aplikasi ini menggabungkan **forum diskusi global & privat**, **kursus online gratis maupun berbayar**, **event edukasi**, **berita pendidikan terkini**, serta **fitur chat real-time** dalam satu ekosistem terpadu yang dapat diakses dari mana saja.
+
+### 🎯 Tujuan Bisnis
+- Menjadi pusat informasi dan interaksi bagi pelajar & mahasiswa di seluruh dunia.
+- Menyediakan wadah pembelajaran kolaboratif dan berbasis komunitas.
+- Menghadirkan peluang monetisasi melalui kursus, event, dan fitur premium.
+- Mendukung pendidikan berkelanjutan dengan materi yang mudah diakses dan relevan
 
 ![EduConnect Banner](docs/banner.png)
 
